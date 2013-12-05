@@ -11,150 +11,133 @@
     <script src="kendo/js/kendo.mobile.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
 
-    <script src="scripts/login.js"></script>
-    <script src="scripts/location.js"></script>
-    <script src="scripts/weather.js"></script>
     <script src="scripts/app.js"></script>
 
 </head>
 <body>
-    <!--Home-->
-    <div id="tabstrip-home"
-        data-role="view"
-        data-title="Home">
-
-        <div class="view-content">
-            <h1>Welcome!</h1>
-            <a id="skin-change" data-role="button" data-click="app.changeSkin">Flat</a>
-            <p>
-                Icenium&trade; enables you to build cross-platform device applications regardless of your
-                    development platform by combining the convenience of a local development toolset with the
-                    power and flexibility of the cloud.
-            </p>
-            <div class="img"></div>
+    
+    <div id="dpw-home" data-role="view" data-layout="drawer-layout" data-title="LA County 211">
+        <div style="height: 20%; width: 100%">
+            <img border="0" alt="background" src="styles/images/marina_del_rey.jpg" width="100%" />
+        </div>
+        <table class="panel_main" width="100%" border="0" cellpadding="0" cellspacing="8">
+            <tr>
+        	    <td colspan="3" width="100%" height="135" bgcolor="CornflowerBlue" valign="bottom">
+                    <a href="http://dpw.lacounty.gov/mobile/shellapi/getmap/?zoomLevel=15&mapType=1&returnUrl=<%= Server.UrlEncode(AppCfg.URL_TheWorks) %>SelectIssue.aspx">
+                        <div class="largeIcon">
+                            <img src="Resources/images/icon_report.png" height="70">
+                        </div>
+                        <div class="tileLabel">Urgent Care</div>
+                    </a>    
+                </td>
+            </tr>
+            <tr>
+    	        <td height="65" width="34%" bgcolor="RoyalBlue" valign="bottom">
+                    <a href="ViewSubmittedIssues.aspx?cid=<%= AppCfg.cache_id %>#page2">
+                        <div class="smallIcon">
+                            <img src="Resources/images/icon_hourglass.png" height="30">
+                        </div>
+                        <div class="tileLabel">Employment Resources</div>
+                    </a>
+                </td>
+    	        <td height="65" bgcolor="RoyalBlue" width="33%" valign="bottom">
+                    <a href="ViewSubmittedIssues.aspx?cid=<%= AppCfg.cache_id %>#page3">
+                        <div class="smallIcon">
+                            <img src="Resources/images/icon_check.png" height="30">
+                        </div>
+                        <div class="tileLabel">Alerts</div>
+                    </a>
+    	        </td>
+    	        <td height="65" valign="bottom">
+                    <a href="ViewSubmittedIssues.aspx?cid=<%= AppCfg.cache_id %>#page3">
+                        <div class="smallIcon">
+                            <img src="Resources/images/icon_check.png" height="30">
+                        </div>
+                        <div class="tileLabel">Donate</div>
+                    </a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3"></td>
+            </tr>
+        </table>
+        <!--Twitter-->
+        <div id="TwitterContainer" style="overflow:hidden">
+		    <div id="TwitterFeed" style="overflow:hidden">
+		    </div>
         </div>
     </div>
+    
+    <!--DPW1 Drawer (Hamburger)-->
+    <div id="drawer-home" data-role="view" data-layout="drawer-layout" data-title="DPW1">
+        <ul data-role="listview" class="inboxList">
+            <li>
+                <h3 class="time">07:56</h3><h3>John Doe</h3>
+                <h2>Monday meeting</h2>
+                <p>Hi Tom, Since Monday I'll be out of office, I'm rescheduling the meeting for Tuesday.</p>
+            </li>
+            <li>
+                <h3 class="time">08:21</h3><h3>Joe Harper</h3>
+                <h2>I'm sorry, Tom</h2>
+                <p>Hi Tom, my aunt comes for a visit this Saturday, so I can't come back to St. Pete...</p>
+            </li>
+            <li>
+                <h3 class="time">08:33</h3><h3>Sarah Connor</h3>
+                <h2>Regarding org chart changes</h2>
+                <p>Tom, I checked the new org chart last night and I have some reservations about it...</p>
+            </li>
+        </ul>
+    </div>
+    
+    <div data-role="view" id="drawer-starred" data-layout="drawer-layout" data-title="Starred Items">
+        <ul data-role="listview">
+            <li data-icon="star">Monday meeting</li>
+            <li data-icon="star">Regarding org chart changes</li>
+            <li data-icon="star">Re: Regarding org chart changes</li>
+            <li data-icon="star">Your Costume is ready</li>
+            <li data-icon="star">Out tonight?</li>
+        </ul>
+    </div>
 
-    <!--Login-->
-    <div id="tabstrip-login"
-        data-role="view"
-        data-title="Login"
-        data-model="app.loginService.viewModel">
+    <div data-role="view" id="drawer-spam" data-layout="drawer-layout" data-title="Spam">
+        <ul data-role="listview">
+            <li>90% Discount!</li>
+            <li>90% Discount!</li>
+            <li>One time offer!</li>
+        </ul>
+        <a data-role="button" style="background-color: darkred; display: block; margin: 2em; font-size: 1.4em;">Delete Spam</a>
+    </div>
 
-        <div class="view-content">
-            <div class="logo"></div>
-            <h3 data-bind="invisible: isLoggedIn">Enter your credentials:</h3>
-            <h1 class="welcome" data-bind="visible: isLoggedIn">Welcome, <span data-bind="text: username"></span>!
-            </h1>
-            <div class="buttonArea">
-                <input type="submit" id="logout" data-role="button" data-bind="click: onLogout, visible: isLoggedIn" class="login-button" value="Logout" />
-            </div>
-
-            <form data-bind="events: { keyup: checkEnter }">
-                <ul data-role="listview" data-style="inset" data-bind="invisible: isLoggedIn">
-                    <li>
-                        <label>
-                            Username
-                                <input type="text" data-bind="value: username" />
-                        </label>
-                    </li>
-                    <li>
-                        <label>
-                            Password
-                                <input type="password" data-bind="value: password" />
-                        </label>
-                    </li>
+    <div data-role="drawer" id="my-drawer" style="width: 270px" data-views="['drawer-home', 'drawer-starred', 'drawer-spam', '/mobile/m/drawer/index.html', 'dpw-home']">
+        <ul data-role="listview" data-type="group">
+            <li>Mailbox
+                <ul>
+                    <li data-icon="inbox"><a href="#drawer-home" data-transition="none">Inbox</a></li>
+                    <li data-icon="star"><a href="#drawer-starred" data-transition="none">Starred Items</a></li>
+                    <li data-icon="compose"><a href="#drawer-spam" data-transition="none">Spamalot</a></li>
                 </ul>
-
-                <div class="buttonArea">
-                    <input type="submit" id="login" data-role="button" data-bind="click: onLogin, invisible: isLoggedIn" class="login-button" value="Login" />
-                </div>
-            </form>
-        </div>
-
+            </li>
+            <li>Tasks
+                <ul>
+                    <li>To Do</li>
+                    <li>In Progress</li>
+                    <li>Done</li>
+                </ul>
+            </li>
+        </ul>
     </div>
-
-    <!--Location-->
-    <div id="tabstrip-location"
-        data-role="view"
-        data-title="Location"
-        data-init="app.locationService.initLocation"
-        data-show="app.locationService.show"
-        data-hide="app.locationService.hide"
-        data-model="app.locationService.viewModel"
-        data-stretch="true">
-
-        <div id="no-map" data-bind="invisible: isGoogleMapsInitialized">
-            Location requires internet connection to display the map.
-        </div>
-        <div id="map-search-wrap" data-bind="visible: isGoogleMapsInitialized">
-            <button id="map-navigate-home" data-bind="click: onNavigateHome"></button>
-            <form onsubmit="return false;">
-                <input id="map-address" type="search" data-bind="value: address" placeholder="Address" />
-                <input id="map-search" type="submit" value="" data-bind="click: onSearchAddress" />
-            </form>
-        </div>
-        <div id="map-canvas" data-bind="visible: isGoogleMapsInitialized"></div>
-
-    </div>
-
-    <!--Weather-->
-    <div id="tabstrip-weather"
-        data-role="view"
-        data-title="Weather"
-        data-model="app.weatherService.viewModel">
-
-        <div class="weather">
-            <p class="weather-title">20-Day Forecast</p>
-
-            <div class="separator">
-                <div class="dark"></div>
-                <div class="light"></div>
-            </div>
-
-            <ul class="forecast-list"
-                data-role="listview"
-                data-bind="source: weatherDataSource"
-                data-template="weather-forecast-template">
-            </ul>
-        </div>
-    </div>
-
-    <!--Weather forecast template-->
-    <script type="text/x-kendo-tmpl" id="weather-forecast-template">
-        <div>
-            <div class="position-left">
-                <span class="weather-info date">${day}</span>
-            </div>
-            <div class="position-right">
-                <span class="weather-info temperature high">${highTemperature}<sup>&deg;</sup></span>
-                <span class="weather-info temperature low">${lowTemperature}<sup>&deg;</sup></span>
-            </div>
-            <div class="position-center">
-                <span class="weather-icon ${image}"></span>
-            </div>
-        </div>
-    </script>
 
     <!--Layout-->
-    <div data-role="layout" data-id="tabstrip-layout">
-
+    <div data-role="layout" data-id="drawer-layout">
         <!--Header-->
-        <div data-role="header">
+        <header data-role="header">
             <div data-role="navbar">
+                <a data-role="button" data-rel="drawer" href="#my-drawer" data-icon="drawer-button" data-align="left"></a>
                 <span data-role="view-title"></span>
+                <a data-align="right" data-role="button" class="nav-button" href="#index">Index</a>
             </div>
-        </div>
-
-        <!--Footer-->
-        <div data-role="footer">
-            <div data-role="tabstrip">
-                <a href="#tabstrip-home" data-icon="home">Home</a>
-                <a href="#tabstrip-login" data-icon="contacts">Login</a>
-                <a href="#tabstrip-location" data-icon="search">Location</a>
-                <a href="#tabstrip-weather" data-icon="globe">Weather</a>
-            </div>
-        </div>
-    </div>
+        </header>
+    </div>    
+    
 </body>
 </html>

@@ -1,6 +1,5 @@
 (function (global) {
-    var mobileSkin = "",
-        app = global.app = global.app || {},
+    var app = global.app = global.app || {},
         os = kendo.support.mobileOS,
         statusBarStyle = os.ios && os.flatVersion >= 700 ? "black-translucent" : "black";
 
@@ -8,18 +7,13 @@
         navigator.splashscreen.hide();
     }, false);
 
-    app.application = new kendo.mobile.Application(document.body, { layout: "tabstrip-layout", statusBarStyle: statusBarStyle });
+    app.application = new kendo.mobile.Application(document.body, { layout: "drawer-layout", statusBarStyle: statusBarStyle });
 
-    app.changeSkin = function (e) {
-        if (e.sender.element.text() === "Flat") {
-            e.sender.element.text("Native");
-            mobileSkin = "flat";
-        }
-        else {
-            e.sender.element.text("Flat");
-            mobileSkin = "";
-        }
+    function onChage() {
+        $("#dpw1class").html(kendo.render(template, this.view()));
+    }
 
-        app.application.skin(mobileSkin);
-    };
+    // create a template using the above definition
+    var template = kendo.template($("#template").html());
+    
 })(window);
