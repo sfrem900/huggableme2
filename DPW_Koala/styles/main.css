@@ -25,11 +25,51 @@ body, html {
 }
 
 /* DPW STYLES*/
-.panel_main {
-    background-color: #000066;
+
+.km-navbar {
+    background-color: #111144;
+}
+
+.pnlMain {
+    background-color: #111144;
     color: #fff;
 }
 
+.tilelarge {
+    height: 15%;
+    width: 100%;
+    background-color: #222266;
+    vertical-align: top;
+}
+
+.tileSmall {
+    height: 15%;
+    background-color: #222266;
+    vertical-align: top;
+}
+
+.iconLrg {
+    float: left;
+    padding-right: 4px;
+}
+
+.iconSm {
+    float: left;
+    padding-right: 4px;
+}
+
+.tileTxt1 {
+    font-size: 1.4em;
+}
+
+.tileTxt2 {
+    font-size: 1.0em;
+}
+
+.tileTxt3 {
+    font-size: 0.8em;
+    text-decoration: none;
+}
 
 /* DRAWER HAMBURGER STYLES*/
 .km-ios #my-drawer .km-content, .km-android #my-drawer .km-content, .km-blackberry #my-drawer .km-content,
@@ -90,5 +130,21 @@ body, html {
     max-width: 300px;
     font-size: .9em;
     -webkit-appearance: none;
+}
+
+/* DEVICE SPECIFIC STYLES*/
+.km-android .km-navbar div.km-view-title {
+    /*display: inline-block;*/
+    visibility: visible;
+    text-align: center;
+}
+
+.km-android div.km-view {
+    -webkit-box-direction: normal; /*Have navbar be at top on device*/
+    -webkit-flex-direction: column; /*Have navbar be at top in simulator*/
+}
+
+.km-android .km-navbar .km-icon {
+    font-size: 1.5em;
 }
 

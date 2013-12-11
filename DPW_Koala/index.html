@@ -16,56 +16,65 @@
 </head>
 <body>
     
-    <div id="dpw-home" data-role="view" data-layout="drawer-layout" data-title="LA County 211">
-        <div style="height: 20%; width: 100%">
-            <img border="0" alt="background" src="styles/images/marina_del_rey.jpg" width="100%" />
+    <div id="dpw-home" data-role="view" data-layout="drawer-layout" style="height: 100%;">
+        <div style="width: 100%">
+            <img border="0" alt="background" src="styles/images/marina_del_rey.jpg" height="50%" width="100%" />
         </div>
-        <table class="panel_main" width="100%" border="0" cellpadding="0" cellspacing="8">
+        <table class="pnlMain" border="0" cellpadding="0" cellspacing="2" width="100%">
             <tr>
-        	    <td colspan="3" width="100%" height="135" bgcolor="CornflowerBlue" valign="bottom">
-                    <a href="http://dpw.lacounty.gov/mobile/shellapi/getmap/?zoomLevel=15&mapType=1&returnUrl=<%= Server.UrlEncode(AppCfg.URL_TheWorks) %>SelectIssue.aspx">
-                        <div class="largeIcon">
-                            <img src="Resources/images/icon_report.png" height="70">
+        	    <td class="tilelarge" colspan="3">
+                    <a href="#index">
+                        <div class="iconLrg">
+                            <img src="styles/images/icon_cogs.png" height="70">
                         </div>
-                        <div class="tileLabel">Urgent Care</div>
-                    </a>    
+                        <div>
+                            <div class="tileTxt1">Urgent Care</div>
+                            <div class="tileTxt3">Homeless Shelters, Medical Clinics, Social Services</div>
+                        </div>
+                    </a>
                 </td>
             </tr>
             <tr>
-    	        <td height="65" width="34%" bgcolor="RoyalBlue" valign="bottom">
-                    <a href="ViewSubmittedIssues.aspx?cid=<%= AppCfg.cache_id %>#page2">
-                        <div class="smallIcon">
-                            <img src="Resources/images/icon_hourglass.png" height="30">
+    	        <td class="tileSmall" width="34%">
+                    <a href="#index">
+                        <div>
+                            <img src="styles/images/icon_report.png" height="30">
                         </div>
-                        <div class="tileLabel">Employment Resources</div>
+                        <div class="tileTxt2">Employment Resources</div>
                     </a>
                 </td>
-    	        <td height="65" bgcolor="RoyalBlue" width="33%" valign="bottom">
-                    <a href="ViewSubmittedIssues.aspx?cid=<%= AppCfg.cache_id %>#page3">
-                        <div class="smallIcon">
-                            <img src="Resources/images/icon_check.png" height="30">
+    	        <td class="tileSmall" width="33%">
+                    <a href="#index">
+                        <div>
+                            <img src="styles/images/icon_cogs.png" height="30">
                         </div>
-                        <div class="tileLabel">Alerts</div>
+                        <div class="tileTxt2">Alerts</div>
                     </a>
     	        </td>
-    	        <td height="65" valign="bottom">
-                    <a href="ViewSubmittedIssues.aspx?cid=<%= AppCfg.cache_id %>#page3">
-                        <div class="smallIcon">
-                            <img src="Resources/images/icon_check.png" height="30">
+    	        <td class="tileSmall">
+                    <a href="#index">
+                        <div>
+                            <img src="styles/images/icon_report.png" height="30">
                         </div>
-                        <div class="tileLabel">Donate</div>
+                        <div class="tileTxt2">Donate</div>
                     </a>
                 </td>
             </tr>
             <tr>
-                <td colspan="3"></td>
+        	    <td class="tileSmall" colspan="3">
+                    <a href="#index">
+                        <div class="iconSm" style="float:left;">
+                            <img src="styles/images/icon_report.png" height="30"">
+                        </div>
+                        <div>
+                            <div class="tileTxt2">Call Now</div>
+                            <div class="tileTxt3">Homeless Shelters, Medical Clinics, Social Services</div>
+                        </div>
+                    </a>
+                </td>
             </tr>
+
         </table>
-        <!--Twitter-->
-        <div id="TwitterContainer" style="overflow:hidden">
-		    <div id="TwitterFeed" style="overflow:hidden">
-		    </div>
-        </div>
     </div>
     
     <!--DPW1 Drawer (Hamburger)-->
@@ -130,11 +139,11 @@
     <!--Layout-->
     <div data-role="layout" data-id="drawer-layout">
         <!--Header-->
-        <header data-role="header">
-            <div data-role="navbar">
-                <a data-role="button" data-rel="drawer" href="#my-drawer" data-icon="drawer-button" data-align="left"></a>
-                <span data-role="view-title"></span>
-                <a data-align="right" data-role="button" class="nav-button" href="#index">Index</a>
+        <header data-role="header" style="color:white">
+            <div data-role="navbar" style="font-size: 1.2em;background-color: #111144;color:white;">
+                <a data-role="button" data-rel="drawer" href="#my-drawer" data-icon="drawer-button" data-align="left" style="color:white"></a>
+                <span data-role="view-title" style="color:white">LA County 211</span>
+                <a data-role="button" href="#index" data-icon="home" data-align="right" style="color:white"></a>
             </div>
         </header>
     </div>    
