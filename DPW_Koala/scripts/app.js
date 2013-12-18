@@ -16,4 +16,8 @@
     // create a template using the above definition
     var template = kendo.template($("#template").html());
     
+    function prevent(e) {
+        e.preventDefault();
+    }
+
 })(window);

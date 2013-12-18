@@ -10,17 +10,23 @@
     <script src="kendo/js/jquery.min.js"></script>
     <script src="kendo/js/kendo.mobile.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
-
+    
     <script src="scripts/app.js"></script>
+    <script src="scripts/locator.js"></script>
 
 </head>
-<body>
-    
-    <div id="dpw-home" data-role="view" data-layout="drawer-layout" style="height: 100%;">
-        <div style="width: 100%">
+<body style="background-color: orange;">
+ 
+    <div id="dpw-home" data-role="view" data-layout="drawer-layout" style="position: relative; height: 100%; background-color: red;">
+        <div style="position:relative; height: 300px; background-color: yellow;">
+             <div style="background-color: green;">
+                 background-image:url('styles/images/marina_del_rey.jpg')<br/><br/><br/>
+             </div>
+        
+        <!--<div style="width: 100%">
             <img border="0" alt="background" src="styles/images/marina_del_rey.jpg" height="50%" width="100%" />
-        </div>
-        <table class="pnlMain" border="0" cellpadding="0" cellspacing="2" width="100%">
+        </div> -->
+        <table class="pnlMain" border="0" cellpadding="0" cellspacing="2" width="100%" style="position:absolute; bottom: 5px;" >
             <tr>
         	    <td class="tilelarge" colspan="3">
                     <a href="#index">
@@ -64,7 +70,7 @@
         	    <td class="tileSmall" colspan="3">
                     <a href="#index">
                         <div class="iconSm" style="float:left;">
-                            <img src="styles/images/icon_report.png" height="30"">
+                            <img src="styles/images/icon_report.png" height="30">
                         </div>
                         <div>
                             <div class="tileTxt2">Call Now</div>
@@ -75,6 +81,8 @@
             </tr>
 
         </table>
+        </div>
+        
     </div>
     
     <!--DPW1 Drawer (Hamburger)-->
@@ -104,26 +112,40 @@
             <li data-icon="star">Regarding org chart changes</li>
             <li data-icon="star">Re: Regarding org chart changes</li>
             <li data-icon="star">Your Costume is ready</li>
-            <li data-icon="star">Out tonight?</li>
+            <li data-icon="star"><a href="views/location.html" data-transition="none">Tonight is Forever</a></li>
         </ul>
     </div>
+   
+    <!--<div id="locator" data-layout="drawer-layout" 
+        data-role="view"
+        data-title="Location"
+        data-init="app.locationService.initLocation"
+        data-show="app.locationService.show"
+        data-hide="app.locationService.hide"
+        data-model="app.locationService.viewModel"
+        data-stretch="true">
 
-    <div data-role="view" id="drawer-spam" data-layout="drawer-layout" data-title="Spam">
-        <ul data-role="listview">
-            <li>90% Discount!</li>
-            <li>90% Discount!</li>
-            <li>One time offer!</li>
-        </ul>
-        <a data-role="button" style="background-color: darkred; display: block; margin: 2em; font-size: 1.4em;">Delete Spam</a>
-    </div>
+        <div id="no-map" data-bind="invisible: isGoogleMapsInitialized">
+            Location requires internet connection to display the map.
+        </div>
+        <div id="map-search-wrap" data-bind="visible: isGoogleMapsInitialized">
+            <button id="map-navigate-home" data-bind="click: onNavigateHome"></button>
+            <form onsubmit="return false;">
+                <input id="map-address" type="search" data-bind="value: address" placeholder="Address" />
+                <input id="map-search" type="submit" value="" data-bind="click: onSearchAddress" />
+            </form>
+        </div>
+        <div id="map-canvas" data-bind="visible: isGoogleMapsInitialized"></div>
 
-    <div data-role="drawer" id="my-drawer" style="width: 270px" data-views="['drawer-home', 'drawer-starred', 'drawer-spam', '/mobile/m/drawer/index.html', 'dpw-home']">
+    </div>-->
+    
+    <div data-role="drawer" id="my-drawer" data-before-show="prevent" data-swipe-to-open="false" style="width: 270px" data-views="['drawer-home', 'drawer-starred', 'drawer-spam', '/mobile/m/drawer/index.html', 'dpw-home', 'locator']">
         <ul data-role="listview" data-type="group">
             <li>Mailbox
                 <ul>
                     <li data-icon="inbox"><a href="#drawer-home" data-transition="none">Inbox</a></li>
                     <li data-icon="star"><a href="#drawer-starred" data-transition="none">Starred Items</a></li>
-                    <li data-icon="compose"><a href="#drawer-spam" data-transition="none">Spamalot</a></li>
+                    <li data-icon="compose"><a href="views/locator.html" data-transition="none">Spamalot</a></li>
                 </ul>
             </li>
             <li>Tasks

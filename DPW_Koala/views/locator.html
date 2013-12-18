@@ -1,0 +1,30 @@
+<div data-role="view" id="locator" data-title="Locator"
+    data-init="app.locationService.initLocation"
+    data-show="app.locationService.show"
+    data-hide="app.locationService.hide"
+    data-model="app.locationService.viewModel"
+    data-stretch="true">
+	<header data-role="header">
+		<div data-role="navbar">
+            <a class="nav-button" data-role="backbutton" data-align="left">Back</a>
+            <a id="buttonAddNewCard" data-role="button" href="views/addCardView.html" data-align="right" data-icon="action"></a>
+            <span data-role="view-title"></span>
+		</div>
+	</header>
+
+    <div id="no-map" data-bind="invisible: isGoogleMapsInitialized">
+        Location requires internet connection to display the map.
+    </div>
+    <div id="map-search-wrap" data-bind="visible: isGoogleMapsInitialized">
+        <button id="map-navigate-home" data-bind="click: onNavigateHome"></button>
+        <form onsubmit="return false;">
+            <input id="map-address" type="search" data-bind="value: address" placeholder="Address" />
+            <input id="map-search" type="submit" value="" data-bind="click: onSearchAddress" />
+        </form>
+    </div>
+	<div id="map_wrapper">
+	    <div id="map-canvas" data-bind="visible: isGoogleMapsInitialized"></div>
+        <div id="over_map" class="dropSheet"><img src="styles/images/crosshair.png" width="34" height="34" /></div>
+	</div>
+    
+</div>
