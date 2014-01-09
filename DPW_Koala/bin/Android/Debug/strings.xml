@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">DPWKoala</string>
+  <string name="LiveSyncToken">bVdzl2Dm8HDKMAMZRecJBvD7KsDO7ECz3rAcMNmQhxrkOHhp/AP1kXY5J/SyF7lQ</string>
+  <string name="Host">https://app.icenium.com</string>
+</resources>

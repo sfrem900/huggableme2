@@ -1,0 +1,25 @@
+    <!--DPW1-->
+    <div id="dpwservices"
+        data-role="view"
+        data-model="app.dpw1Service.viewModel">
+
+        <div class="weather">
+            <div class="separator">
+                <div class="dark"></div>
+                <div class="light"></div>
+            </div>
+
+            <ul class="forecast-list"
+                data-role="listview"
+                data-bind="source: dpw1DataSource"
+                data-template="dpw1-forecast-template">
+            </ul>
+        </div>
+    </div>
+
+    <!--DPW1 template-->
+    <script type="text/x-kendo-tmpl" id="dpw1-forecast-template">
+        <a href="http://dpw.lacounty.gov/mobile/theworks/SelectService.aspx?Show=detail&lat=34.00023314776972&lon=-118.19599270820617&address=4529 District Boulevard, Vernon, CA 90058, USA&Category=#=service_id#" data-rel="external">
+            #=service_name#
+        </a>
+    </script>

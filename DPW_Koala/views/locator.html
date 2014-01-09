@@ -1,4 +1,4 @@
-<div data-role="view" id="locator" data-title="Locator"
+<div data-role="view" id="locator"
     data-init="app.locationService.initLocation"
     data-show="app.locationService.show"
     data-hide="app.locationService.hide"
@@ -7,8 +7,8 @@
 	<header data-role="header">
 		<div data-role="navbar">
             <a class="nav-button" data-role="backbutton" data-align="left">Back</a>
-            <a id="buttonAddNewCard" data-role="button" href="views/addCardView.html" data-align="right" data-icon="action"></a>
-            <span data-role="view-title"></span>
+            <a id="btnRequestService" data-role="button" data-align="right" data-icon="action"></a>
+            <span data-role="view-title">Locator</span>
 		</div>
 	</header>
 
@@ -24,7 +24,22 @@
     </div>
 	<div id="map_wrapper">
 	    <div id="map-canvas" data-bind="visible: isGoogleMapsInitialized"></div>
-        <div id="over_map" class="dropSheet"><img src="styles/images/crosshair.png" width="34" height="34" /></div>
+        <div id="over_map" class="dropSheet"><img src="styles/images/crossHairSM.png" width="34" height="34" /></div>
 	</div>
-    
+</div>
+
+<div data-role="view" id="request-service"
+    data-show="app.requestService.show"
+    data-init="app.requestService.initRequest">
+	<header data-role="header">
+		<div data-role="navbar">
+            <a class="nav-button" data-role="backbutton" data-align="left">Back</a>
+            <span data-role="view-title">Submission</span>
+		</div>
+	</header>
+
+    <div id="select-service">
+        Your address: <br/><br/>
+        <span data-bind="html: useraddr">Hard Code</span>
+    </div>
 </div>

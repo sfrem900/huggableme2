@@ -13,80 +13,73 @@
     
     <script src="scripts/app.js"></script>
     <script src="scripts/locator.js"></script>
+    <script src="scripts/dpwservices.js"></script>    
 
 </head>
 <body style="background-color: orange;">
  
-    <div id="dpw-home" data-role="view" data-layout="drawer-layout" style="position: relative; height: 100%; background-color: red;">
-        <div style="position:relative; height: 300px; background-color: yellow;">
-             <div style="background-color: green;">
-                 background-image:url('styles/images/marina_del_rey.jpg')<br/><br/><br/>
-             </div>
-        
-        <!--<div style="width: 100%">
-            <img border="0" alt="background" src="styles/images/marina_del_rey.jpg" height="50%" width="100%" />
-        </div> -->
-        <table class="pnlMain" border="0" cellpadding="0" cellspacing="2" width="100%" style="position:absolute; bottom: 5px;" >
-            <tr>
-        	    <td class="tilelarge" colspan="3">
-                    <a href="#index">
-                        <div class="iconLrg">
-                            <img src="styles/images/icon_cogs.png" height="70">
-                        </div>
-                        <div>
-                            <div class="tileTxt1">Urgent Care</div>
-                            <div class="tileTxt3">Homeless Shelters, Medical Clinics, Social Services</div>
-                        </div>
-                    </a>
-                </td>
-            </tr>
-            <tr>
-    	        <td class="tileSmall" width="34%">
-                    <a href="#index">
-                        <div>
-                            <img src="styles/images/icon_report.png" height="30">
-                        </div>
-                        <div class="tileTxt2">Employment Resources</div>
-                    </a>
-                </td>
-    	        <td class="tileSmall" width="33%">
-                    <a href="#index">
-                        <div>
-                            <img src="styles/images/icon_cogs.png" height="30">
-                        </div>
-                        <div class="tileTxt2">Alerts</div>
-                    </a>
-    	        </td>
-    	        <td class="tileSmall">
-                    <a href="#index">
-                        <div>
-                            <img src="styles/images/icon_report.png" height="30">
-                        </div>
-                        <div class="tileTxt2">Donate</div>
-                    </a>
-                </td>
-            </tr>
-            <tr>
-        	    <td class="tileSmall" colspan="3">
-                    <a href="#index">
-                        <div class="iconSm" style="float:left;">
-                            <img src="styles/images/icon_report.png" height="30">
-                        </div>
-                        <div>
-                            <div class="tileTxt2">Call Now</div>
-                            <div class="tileTxt3">Homeless Shelters, Medical Clinics, Social Services</div>
-                        </div>
-                    </a>
-                </td>
-            </tr>
-
-        </table>
+    <div id="dpw-home" data-role="view" data-layout="drawer-layout" data-stretch="true">
+        <div class="pnlMain" style="">            
+            <table class="pnlTiles" border="0" cellpadding="0" cellspacing="2" width="100%">
+                <tr>
+            	    <td class="tilelarge" colspan="3">
+                        <a href="views/UnderConstruction.html">
+                            <div class="iconLrg">
+                                <img src="styles/images/icon_cogs.png" height="70">
+                            </div>
+                            <div>
+                                <div class="tileTxt1">Urgent Care</div>
+                                <div class="tileTxt3">Homeless Shelters, Medical Clinics, Social Services</div>
+                            </div>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+        	        <td class="tileSmall" width="34%">
+                        <a href="views/UnderConstruction.html">
+                            <div>
+                                <img src="styles/images/icon_report.png" height="30">
+                            </div>
+                            <div class="tileTxt2">Employment Resources</div>
+                        </a>
+                    </td>
+        	        <td class="tileSmall" width="33%">
+                        <a href="views/UnderConstruction.html">
+                            <div>
+                                <img src="styles/images/icon_cogs.png" height="30">
+                            </div>
+                            <div class="tileTxt2">Alerts</div>
+                        </a>
+        	        </td>
+        	        <td class="tileSmall">
+                        <a href="views/UnderConstruction.html">
+                            <div>
+                                <img src="styles/images/icon_report.png" height="30">
+                            </div>
+                            <div class="tileTxt2">Donate</div>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+            	    <td class="tileSmall" colspan="3">
+                        <a href="views/dpwservices.html" data-transition="none">
+                            <div class="iconSm" style="float:left;">
+                                <img src="styles/images/icon_report.png" height="30">
+                            </div>
+                            <div>
+                                <div class="tileTxt2">Call Now</div>
+                                <div class="tileTxt3">Homeless Shelters, Medical Clinics, Social Services</div>
+                            </div>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+            
         </div>
-        
     </div>
-    
+  
     <!--DPW1 Drawer (Hamburger)-->
-    <div id="drawer-home" data-role="view" data-layout="drawer-layout" data-title="DPW1">
+    <div id="drawer-home" data-role="view" data-layout="drawer-layout">
         <ul data-role="listview" class="inboxList">
             <li>
                 <h3 class="time">07:56</h3><h3>John Doe</h3>
@@ -106,16 +99,15 @@
         </ul>
     </div>
     
-    <div data-role="view" id="drawer-starred" data-layout="drawer-layout" data-title="Starred Items">
+    <div data-role="view" id="drawer-starred" data-layout="drawer-layout">
         <ul data-role="listview">
-            <li data-icon="star">Monday meeting</li>
-            <li data-icon="star">Regarding org chart changes</li>
-            <li data-icon="star">Re: Regarding org chart changes</li>
-            <li data-icon="star">Your Costume is ready</li>
-            <li data-icon="star"><a href="views/location.html" data-transition="none">Tonight is Forever</a></li>
+            <li data-icon="star">Nothing to see here</li>
+            <li data-icon="star">Keep moving along</li>
+            <li data-icon="star"><a href="views/dpwservices.html" data-transition="none">Your costume is ready</a></li>
+            <li data-icon="star"><a href="views/locator.html" data-transition="none">Tonight is Forever</a></li>
         </ul>
     </div>
-   
+    
     <!--<div id="locator" data-layout="drawer-layout" 
         data-role="view"
         data-title="Location"
@@ -139,13 +131,15 @@
 
     </div>-->
     
-    <div data-role="drawer" id="my-drawer" data-before-show="prevent" data-swipe-to-open="false" style="width: 270px" data-views="['drawer-home', 'drawer-starred', 'drawer-spam', '/mobile/m/drawer/index.html', 'dpw-home', 'locator']">
+    <div data-role="drawer" id="my-drawer" data-before-show="preventOpen" style="width: 270px" 
+        data-views="['drawer-home', 'drawer-starred', 'drawer-spam', '/mobile/m/drawer/index.html', 'dpw-home', 'locator', 'dpwservices', 'http://dpw.lacounty.gov/mobile/theworks/SelectService.aspx']" 
+        data-swipe-to-open="false">
         <ul data-role="listview" data-type="group">
             <li>Mailbox
                 <ul>
-                    <li data-icon="inbox"><a href="#drawer-home" data-transition="none">Inbox</a></li>
+                    <li data-icon="inbox"><a href="views/locator.html" data-transition="none">Submit Request</a></li>
                     <li data-icon="star"><a href="#drawer-starred" data-transition="none">Starred Items</a></li>
-                    <li data-icon="compose"><a href="views/locator.html" data-transition="none">Spamalot</a></li>
+                    <li data-icon="compose"><a href="views/dpwservices.html" data-transition="none">Services</a></li>
                 </ul>
             </li>
             <li>Tasks
@@ -163,11 +157,16 @@
         <!--Header-->
         <header data-role="header" style="color:white">
             <div data-role="navbar" style="font-size: 1.2em;background-color: #111144;color:white;">
-                <a data-role="button" data-rel="drawer" href="#my-drawer" data-icon="drawer-button" data-align="left" style="color:white"></a>
+                <a id="bdrawer" data-role="button" data-rel="drawer" href="#my-drawer" data-icon="drawer-button" data-align="left" style="color:white"></a>
                 <span data-role="view-title" style="color:white">LA County 211</span>
-                <a data-role="button" href="#index" data-icon="home" data-align="right" style="color:white"></a>
+                <a data-role="button" href="#dpw-home" data-icon="home" data-align="right" style="color:white"></a>
             </div>
         </header>
+        <script>$("#bdrawer").kendoTouch({ 
+                    touchstart: bdrawer_touchstart 
+                });
+            
+        </script>
     </div>    
     
 </body>

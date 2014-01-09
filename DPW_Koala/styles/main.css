@@ -4,6 +4,8 @@ body, html {
     width: 100%;
 }
 
+a:link {text-decoration:none;}
+
 /* COMMON STYLES*/
 .view-content h1 {
     color: #42454a;
@@ -71,9 +73,10 @@ body, html {
     position: absolute;
     left: 0;
     right: 0;
-    margin: 3px 50px 0px 50px;
+    margin: 3px 30px 0px 40px;
     background-color: #fff;
-    font-style: italic;
+    font-style: normal;
+    font-size: 0.7em;
     color: #000;
     padding: 7px 10px;
     border-radius: 3em;
@@ -89,7 +92,7 @@ body, html {
 
 #map-search {
     float: right;
-    width: 40px;
+    width: 27px;
     height: 40px;
     color: #fff;
     border: none;
@@ -128,8 +131,23 @@ body, html {
 }
 
 .pnlMain {
+    position:absolute; 
+    top: 0; 
+    bottom: 0; 
+    left: 0; 
+    right: 0; 
+    background-image: url('../styles/images/marinaDelRey.png'); 
+    background-repeat: no-repeat; 
+    background-size: cover;
+}
+
+.pnlTiles {
+    position:absolute;
+    bottom: 0px; 
     background-color: #111144;
     color: #fff;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
 }
 
 .tilelarge {
@@ -140,9 +158,9 @@ body, html {
 }
 
 .tileSmall {
-    height: 15%;
     background-color: #222266;
     vertical-align: top;
+    background-clip:padding-box;
 }
 
 .iconLrg {
@@ -218,6 +236,49 @@ body, html {
         float: left;
         margin-right: 10px;
     }
+
+/* DPW SERVICES STYLES */
+.weather {
+    padding-top:50px;
+    color: #fff;
+    font-size: 1.5em;
+    line-height: 1.2em;
+    text-shadow: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    width: 100%;
+}
+/* Separator Style*/
+.separator > .dark {
+    background: -moz-linear-gradient(left, rgba(0,0,0,0) 0%, rgba(0,0,0,0.2) 30%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.2) 70%, rgba(0,0,0,0) 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(0,0,0,0)), color-stop(30%,rgba(0,0,0,0.2)), color-stop(50%,rgba(0,0,0,0.2)), color-stop(70%,rgba(0,0,0,0.2)), color-stop(100%,rgba(0,0,0,0)));
+    background: -webkit-linear-gradient(left, rgba(0,0,0,0) 0%,rgba(0,0,0,0.2) 30%,rgba(0,0,0,0.2) 50%,rgba(0,0,0,0.2) 70%,rgba(0,0,0,0) 100%);
+    background: -o-linear-gradient(left, rgba(0,0,0,0) 0%,rgba(0,0,0,0.2) 30%,rgba(0,0,0,0.2) 50%,rgba(0,0,0,0.2) 70%,rgba(0,0,0,0) 100%);
+    background: -ms-linear-gradient(left, rgba(0,0,0,0) 0%,rgba(0,0,0,0.2) 30%,rgba(0,0,0,0.2) 50%,rgba(0,0,0,0.2) 70%,rgba(0,0,0,0) 100%);
+    background: linear-gradient(to right, rgba(0,0,0,0) 0%,rgba(0,0,0,0.2) 30%,rgba(0,0,0,0.2) 50%,rgba(0,0,0,0.2) 70%,rgba(0,0,0,0) 100%);
+    height: 1px;
+    border: none;
+    width: 100%;
+    opacity: 0.3;
+}
+
+.separator > .light {
+    background: -moz-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 50%, rgba(255,255,255,0) 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,255,255,0)), color-stop(50%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,0)));
+    background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 50%,rgba(255,255,255,0) 100%);
+    background: -o-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 50%,rgba(255,255,255,0) 100%);
+    background: -ms-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 50%,rgba(255,255,255,0) 100%);
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 50%,rgba(255,255,255,0) 100%);
+    height: 1px;
+    border: none;
+    width: 100%;
+    opacity: 0.3;
+}
+
 
 /* IMAGE STYLES*/
 
