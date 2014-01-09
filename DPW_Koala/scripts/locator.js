@@ -198,29 +198,26 @@ $("#btnRequestService").attr("href", that.submitHref());
         initRequest: function (e) {
             kendo.bind($("#request-service"), app.requestService.viewModel);
         },
-
         show: function (e) {
             app.requestService.viewModel.set("useraddr", e.view.params.addr);
         },
 
         //Submit Form 
-        function submit_request(e) {
+        submit_form: function (e) {
             $.post('TestPost.aspx', app.requestService.viewModel, function (data) {
                 // This is executed when the call to web service was succesful.
                 // 'data' contains the response from the request
                 alert(data);
             }).error(function (xhr, ajaxOptions, thrownError, request, error) {
                 alert('xrs.status = ' + xhr.status + '\n' +
-                     'thrown error = ' + thrownError + '\n' +
-                     'xhr.statusText = ' + xhr.statusText + '\n' +
-                     'request = ' + request + '\n' +
-                     'error = ' + error);
-        });
-
-
-        e.preventDefault();
-
-    }
+                         'thrown error = ' + thrownError + '\n' +
+                         'xhr.statusText = ' + xhr.statusText + '\n' +
+                         'request = ' + request + '\n' +
+                         'error = ' + error);
+            });
+            
+            e.preventDefault();
+        },
         
         viewModel: new RequestViewModel()
     };
